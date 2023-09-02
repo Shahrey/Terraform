@@ -1,0 +1,53 @@
+---Main---
+
+resource "aws_instance" "app_server" {
+  ami           = "ami-08d70e59c07c61a3a"
+  instance_type = var.ec2_instance_type
+
+  tags = {
+    Name = var.instance_name
+  }
+}
+
+--
+
+--------------------
+
+
+--Output--
+
+output "instance_id" {
+  description = "ID of the EC2 instance"
+  value       = aws_instance.app_server.id
+}
+
+output "instance_public_ip" {
+  description = "Public IP address of the EC2 instance"
+  value       = aws_instance.app_server.public_ip
+}
+
+output "instance_availability_zone" {
+  description = "availability zone of the EC2 instance"
+  value       = aws_instance.app_server.availability_zone
+}
+
+
+-------------------------------
+12Aug2023
+
+# provider "aws" {
+#   region  = var.aws_region
+# }
+
+# provider "aws" {
+#   region  = "us-west-2"
+# }
+
+# resource "aws_instance" "app_server" {
+#    ami           = "ami-08d70e59c07c61a3a"
+#   instance_type = var.ec2_instance_type
+
+#   tags = {
+#     Name = var.instance_name
+#   }
+# }
