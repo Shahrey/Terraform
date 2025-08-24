@@ -6,7 +6,7 @@ on:
 
       - main   # 👈 only runs for main branch
  
- 
+
 jobs:
 
   deploy:
