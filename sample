@@ -1,0 +1,27 @@
+on:
+
+  push:
+
+    branches:
+
+      - main   # 👈 only runs for main branch
+ 
+ 
+jobs:
+
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    environment: main-protection   # 👈 secrets come from this environment
+
+    steps:
+
+      - name: Checkout
+
+        uses: actions/checkout@v3
+ 
+      - name: Deploy with secret
+
+        run: echo "Using secret ${{ secrets.PROD_API_KEY }}"
+ 
